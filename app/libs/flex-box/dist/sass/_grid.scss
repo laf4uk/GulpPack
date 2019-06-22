@@ -1,0 +1,73 @@
+// wrapper widths
+//
+// Set the wrapper width, and override it for fixed navbars in media queries.
+
+@if $enable-grid-classes {
+  .wrapper {
+    @include make-wrapper();
+    @include make-wrapper-max-widths();
+  }
+}
+
+// Fluid wrapper
+//
+// Utilizes the mixin meant for fixed width wrappers, but with 100% width for
+// fluid, full width layouts.
+
+@if $enable-grid-classes {
+  .wrapper-fluid {
+    @include make-wrapper();
+  }
+}
+
+// Rubber wrapper
+
+@if $enable-grid-classes {
+  .wrapper-rubber {
+    @include make-wrapper-rubber();
+  }
+}
+
+// fl-box
+//
+// fl-boxs contain and clear the floats of your columns.
+
+@if $enable-grid-classes {
+  .fl-box {
+    @include make-fl-box();
+  }
+
+  // Remove the negative margin from default .fl-box, then the horizontal padding
+  // from all immediate children columns (to prevent runaway style inheritance).
+  .nogutts {
+    margin-right: 0;
+    margin-left: 0;
+
+    > .pill,
+    > [class*="pill-"] {
+      padding-right: 0;
+      padding-left: 0;
+    }
+  }
+
+  .nugutts-pl {
+    >.pill, > [class*="pill-"] {
+      &:first-child {
+        padding-left: 0;
+      }
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+  }
+}
+
+
+
+// Columns
+//
+// Common styles for small and large grid columns
+
+@if $enable-grid-classes {
+  @include make-grid-columns();
+}

@@ -1,0 +1,43 @@
+@import "vars"
+@import "libs"
+@import "fonts"
+@import "mixins"
+
+.hidden
+	display: none
+.img-responsive
+	width: 100%
+	height: 100%
+
+body
+	position: relative
+	color: $text
+	font-family: $default-font
+	font-size: $default-fsize
+	min-width: 320px
+	line-height: 1.48
+	box-sizing: border-box
+	overflow-x: hidden
+	margin: 0
+	background-color: $main
+a
+	// font-family: "roboto-example", sans-serif
+	color: $text
+	transition: all 0.25s ease
+	&:hover
+		color: $accent
+		text-decoration: none
+h1, h2, h3, h4, h5, h6
+	// font-family: "roboto-example", sans-serif
+	color: $text
+	margin:
+		top: 0
+		bottom: 0
+
+@import "./_styles/header"
+// @import "./_styles/about"
+// @import "./_styles/skills"
+// @import "./_styles/snipp"
+
+@import "media"
+
