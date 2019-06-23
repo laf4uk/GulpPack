@@ -1,7 +1,13 @@
+*, *::before, *::after
+	outline: inherit
+
 ::placeholder
 	transition: all 0.25s ease
-*
-	outline: none
+
+::selection
+	background-color: $accent
+	color: $main
+	
 label, input
 	display: block
 	width: 100%

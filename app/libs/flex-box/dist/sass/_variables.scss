@@ -46,3 +46,8 @@ $wrapper-max-rubber: 1170px !default;
 
 $grid-columns:                12 !default;
 $grid-gutter-width:           30px !default;
+
+
+// Display
+
+$displays: none, inline, inline-block, block, table, table-row, table-cell, flex, inline-flex !default;

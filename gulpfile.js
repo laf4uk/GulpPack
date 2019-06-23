@@ -2,17 +2,18 @@ var	gulp 					= require('gulp'),
 		browserSync 	= require('browser-sync').create(),
 		sass					= require('gulp-sass'),
 		concat				= require('gulp-concat'),
-		// gutil					= require('gulp-util')
 		uglify				= require('gulp-uglify-es').default,
 		notify				= require('gulp-notify'),
 		plumber				= require('gulp-plumber'),
-		sourcemaps		= require('gulp-sourcemaps'),
-		imagemin			=	require('gulp-imagemin'),
-		pug						= require('gulp-pug'),
-		rename				= require('gulp-rename'),
-		postcss				= require('gulp-postcss'),
 		autoprefixer	= require('autoprefixer'),
 		cssnano 			= require('cssnano'),
+		short 				= require('postcss-short'),
+		magician 			= require('postcss-font-magician'),
+		sourcemaps		= require('gulp-sourcemaps'),
+		imagemin			=	require('gulp-imagemin'),
+		postcss				= require('gulp-postcss'),
+		rename				= require('gulp-rename'),
+		pug						= require('gulp-pug'),
 		del						= require('del');
 
 gulp.task('server', function() {
@@ -38,7 +39,9 @@ gulp.task('server', function() {
 gulp.task('styles', function() {
 	var plugins = [
 		autoprefixer(),
-		cssnano()
+		magician(),
+		cssnano(),
+		short()
 	];
 	return gulp.src('./app/sass/**/*.sass')
 	.pipe(plumber({
@@ -64,9 +67,9 @@ gulp.task('styles', function() {
 gulp.task('js', function() {
 	return gulp.src([
 		'app/libs/jquery/dist/jquery.min.js',
-		'app/libs/mmenu-js-master/dist/mmenu.min.js',
-		'app/libs/owl-carousel/dist/owl.carousel.min.js',
-		'app/libs/Likely/release/likely.js',
+		// 'app/libs/mmenu-js-master/dist/mmenu.min.js',
+		// 'app/libs/owl-carousel/dist/owl.carousel.min.js',
+		// 'app/libs/Likely/release/likely.js',
 		// 'app/libs/magnific-popup/dist/jquery.magnific-popup.min.js',
 		// 'app/libs/inputmask/dist/min/jquery.inputmask.bundle.min.js',
 		// 'app/libs/jquery-validation/dist/jquery.validate.min.js',
